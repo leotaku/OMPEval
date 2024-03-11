@@ -11,6 +11,7 @@
 #include <thread>
 #include <mutex>
 #include <atomic>
+#include <functional>
 #include <unordered_map>
 #include <array>
 #include <cstdint>
