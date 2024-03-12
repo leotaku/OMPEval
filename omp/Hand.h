@@ -7,6 +7,7 @@
 #include <memory>
 #include <cstdint>
 #include <cassert>
+#include <vector>
 #if OMP_SSE2
     #include <xmmintrin.h> // SSE1
     #include <emmintrin.h> // SSE2
@@ -163,6 +164,20 @@ struct Hand
         #else
         return mMask >> shift;
         #endif
+    }
+
+    std::vector<unsigned> showCards() const {
+        std::vector<unsigned> result = {};
+        Hand hand = *this;
+
+        for (unsigned i = 0; i < CARD_COUNT; i++) {
+          if (hand.mask() & CARDS[i].mask()) {
+              result.push_back(i);
+              hand -= CARDS[i];
+          }
+        }
+
+        return result;
     }
 
 private:
