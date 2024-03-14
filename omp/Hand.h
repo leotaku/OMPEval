@@ -166,7 +166,7 @@ struct Hand
         #endif
     }
 
-    std::vector<unsigned> showCards() const {
+    std::vector<unsigned> cards() const {
         std::vector<unsigned> result = {};
         Hand hand = *this;
 
